@@ -1,0 +1,12 @@
+:root{
+--main-color:#09c;
+--header-bg:#09c;
+--header-color:#fff;
+--bar-bg:linear-gradient(90deg, #ff0000, #00ff00, #ffffff);
+--menu-bg-color:#000;
+--menu-color:#ff0000;
+--menu-color-hover:#ff0000;
+--main-menu-color:#00ff00;
+--submenu-bg-hover:linear-gradient(90deg, #ff0000, #00ff00, #ffffff);
+--submenu-bg-hover-active:#0000ff;
+--font-body:"Microsoft Yahei","WenQuanYi Micro Hei",sans-serif,"Helvetica Neue",Helvetica,"Hiragino Sans GB"}

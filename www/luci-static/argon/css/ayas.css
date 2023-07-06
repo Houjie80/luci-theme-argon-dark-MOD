@@ -1,0 +1,23 @@
+
+.Rainbow {
+    background: linear-gradient(90deg, #ff0000, #00ff00, #0000ff, #eeeeee, #000000);
+    background-size: 500% 500%;
+    -webkit-animation: IgnielGradient 100s ease infinite;
+    -moz-animation: ignielGradient 100s ease infinite;
+    animation: ignielGradient 100s ease infinite;
+}
+@-webkit-keyframes ignielGradient {
+    0%{background-position:0% 50%}
+    50%{background-position:100% 50%}
+    100%{background-position:0% 50%}
+}
+@-moz-keyframes ignielGradient {
+    0%{background-position:0% 50%}
+    50%{background-position:100% 50%}
+    100%{background-position:0% 50%}
+}
+@keyframes ignielGradient {
+    0%{background-position:0% 50%}
+    50%{background-position:100% 50%}
+    100%{background-position:0% 50%}
+}
