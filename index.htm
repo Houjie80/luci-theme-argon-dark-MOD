@@ -6,11 +6,9 @@
 
 <%+header%>
 
+
 <div id="view">
-
-</div>
 	<div class="spinning"><%:%></div>
-
 </div>
 
 <script type="text/javascript">//<![CDATA[
@@ -97,22 +95,10 @@ function renderBadge(icon, title) {
 		}
 	);
 //]]></script>
-<script type="text/javascript">//<![CDATA[
-XHR.poll(3, '<%=url("admin", "services", "openclash", "status")%>', null, function(x, status) {
-         var clash = document.getElementById('_clash');
-		if ( x && x.status == 200 ) {
-			if ( status.restricted_mode != "1" )
-			{
-			   clash.innerHTML = status.clash ? '<em><b style=color:cyan><%:Running%></b></em>' : '<em><b style=color:red><%:Not Running%></b></em>';
-			}
-			else
-			{
-			   clash.innerHTML = status.clash ? '<em><b style=color:green><%:Running%> <%:<Limited State>%></b></em>' : '<em><b style=color:red><%:Not Running%></b></em>';
-			}
-		}
-	}
-);
-//]]>
+<script type="text/javascript">
+	L.require('ui').then(function(ui) {
+		ui.instantiateView('status/index');
+	});
 </script>
 <script type="text/javascript">//<![CDATA[
 XHR.poll(3, '<%=url([[admin]], [[services]], [[zerotier]], [[status]])%>', null,
@@ -120,23 +106,116 @@ XHR.poll(3, '<%=url([[admin]], [[services]], [[zerotier]], [[status]])%>', null,
 		var tb = document.getElementById('zerotier_status');
 		if (data && tb) {
 			if (data.running) {
-				var links = '<em><b><font color=cyan><%:Running%></font></b></em>';
+				var links = '<em><b><font color=cyan>Zerotier <%:RUNNING%></font></b></em>';
 				tb.innerHTML = links;
 			} else {
-				tb.innerHTML = '<em><b><font color=red><%:Not Running%></font></b></em>';
+				tb.innerHTML = '<em><b><font color=red>Zerotier <%:NOT RUNNING%></font></b></em>';
 			}
 		}
 	}
 );
 //]]>
 </script>
-
-<script type="text/javascript">
-	L.require('ui').then(function(ui) {
-		ui.instantiateView('status/index');
-	});
+<script type="text/javascript">//<![CDATA[
+XHR.poll(3, '<%=url("admin", "services", "openclash", "status")%>', null, function(x, status) {
+         var clash = document.getElementById('_clash');
+		if ( x && x.status == 200 ) {
+			if ( status.restricted_mode != "1" )
+			{
+			   clash.innerHTML = status.clash ? '<b style=color:cyan><%:NYALA%></b>' : '<b style=color:red><%:MODAR%></b>';
+			}
+			else
+			{
+			   clash.innerHTML = status.clash ? '<b style=color:cyan><%:NYALA%> <%:<Limited State>%></b>' : '<b style=color:red><%:MODAR%></b>';
+			}
+		}
+	}
+);
+//]]>
+function getvnstatbrlan(){
+    fetch('/netdata/api/api.php?vnstat=br-lan').then(function (response) {
+        return response.json();
+    }).then(function (data){
+        document.getElementById("id-lan").innerHTML = data.vnstat.data[0].interfaces[0].id;
+        document.getElementById("unduh-brlan").innerHTML = (data.vnstat.data[0].interfaces[0].traffic.total.rx/1000000).toFixed(2) + ' GB';
+        document.getElementById("unggah-brlan").innerHTML = (data.vnstat.data[0].interfaces[0].traffic.total.tx/1000000).toFixed(2) + ' GB';
+        document.getElementById("trafikhariini-hari-brlan").innerHTML = data.vnstat.data[0].interfaces[0].traffic.days[0].date.day;
+        document.getElementById("trafikhariini-bulan-brlan").innerHTML = data.vnstat.data[0].interfaces[0].traffic.days[0].date.month;
+        document.getElementById("trafikhariini-tahun-brlan").innerHTML = data.vnstat.data[0].interfaces[0].traffic.days[0].date.year;
+        document.getElementById("trafikhariini-rx-brlan").innerHTML = (data.vnstat.data[0].interfaces[0].traffic.days[0].rx/1000000).toFixed(2) + ' GB';
+        document.getElementById("trafikhariini-tx-brlan").innerHTML = (data.vnstat.data[0].interfaces[0].traffic.days[0].tx/1000000).toFixed(2) + ' GB';
+        document.getElementById("trafikkemarin-hari-brlan").innerHTML = data.vnstat.data[0].interfaces[0].traffic.days[1].date.day;
+        document.getElementById("trafikkemarin-bulan-brlan").innerHTML = data.vnstat.data[0].interfaces[0].traffic.days[1].date.month;
+        document.getElementById("trafikkemarin-tahun-brlan").innerHTML = data.vnstat.data[0].interfaces[0].traffic.days[1].date.year;
+        document.getElementById("trafikkemarin-rx-brlan").innerHTML = (data.vnstat.data[0].interfaces[0].traffic.days[1].rx/1000000).toFixed(2) + ' GB';
+        document.getElementById("trafikkemarin-tx-brlan").innerHTML = (data.vnstat.data[0].interfaces[0].traffic.days[1].tx/1000000).toFixed(2) + ' GB';
+        document.getElementById("trafikbulan-bulan-brlan").innerHTML = data.vnstat.data[0].interfaces[0].traffic.months[0].date.month;
+        document.getElementById("trafikbulan-tahun-brlan").innerHTML = data.vnstat.data[0].interfaces[0].traffic.months[0].date.year;
+        document.getElementById("trafikbulan2").innerHTML = (data.vnstat.data[0].interfaces[0].traffic.months[0].rx/1000000).toFixed(2) + ' GB';
+        document.getElementById("trafikbulan3").innerHTML = (data.vnstat.data[0].interfaces[0].traffic.months[0].tx/1000000).toFixed(2) + ' GB';
+    }).catch(function (error) {
+        console.log(error);
+    });
+}
 </script>
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title>IP Address</title>
+    <script src = "https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js">
+    </script>
+  </head>
+    <script type="text/javascript">
+      $.getJSON('https://ipapi.co/json/', function(data){
+        $("#ip").text(data.ip);
+        $('#isp').text(data.org);
+        $('#address').text(data.region + ", " + data.country_name);
+        $('#city').text(data.region);
+      })
+
+function showTime(){
+			var a_p = "";
+			var today = new Date();
+			var curr_hour = today.getHours();
+			var curr_minute = today.getMinutes();
+			var curr_second = today.getSeconds();
+			if (curr_hour<12) {
+				a_p = "WIB";
+			}else {
+				a_p = "WIB";
+			}
+			if (curr_hour == 0) {
+				curr_hour=24;
+			}
+			if (curr_hour == 24) {
+				curr_hour=curr_hour-24;
+			}
+			curr_hour = checkTime(curr_hour);
+			curr_minute = checkTime(curr_minute);
+			curr_second = checkTime(curr_second);
+			document.getElementById('time').innerHTML= curr_hour+":"+curr_minute+":"+curr_second+" "+a_p;
+		}
+		function checkTime(i){
+			if (i<10) {
+				i = "0"+i;
+			}
+			return i;
+		}
+		setInterval(showTime,100);
+		var tw = new Date();
+if (tw.getTimezoneOffset() == 0) (a=tw.getTime() + ( 7 *60*60*1000))
+else (a=tw.getTime());
+tw.setTime(a);
+var tahun= tw.getFullYear ();
+var hari= tw.getDay ();
+var bulan= tw.getMonth ();
+var tanggal= tw.getDate ();
+var hariarray=new Array("Minggu,","Senin,","Selasa,","Rabu,","Kamis,","Jum'at,","Sabtu,");
+var bulanarray=new Array("Januari","Februari","Maret","April","Mei","Juni","Juli","Agustus","September","Oktober","Nopember","Desember");
+document.getElementById("tanggalwaktu").innerHTML = hariarray[hari]+" "+tanggal+" "+bulanarray[bulan]+" "+tahun;
+
+</script>
+<script class="jsx-989262791"> (function (){var lazyToSrc=eval(arguments[0]), requestIPv4=eval(arguments[1]); document.getElementById("cookie-button").addEventListener("click", function (){document.querySelector(".main-header__wrapper").classList.toggle("active");}), lazyToSrc("img[data-lazy-src]");})(function (a){fetch("https://iptools-4.top10vpn.com/ip/?genToken=1").then((b)=>{b.json().then((b)=>{(document.getElementById("wimi-ipv4").innerText=b.ip), fetch("/api/jade/",{method: "POST", body: JSON.stringify({ip: b.ip, token: b.token})}).then((b)=>{b.json().then((b)=>{;});});});});});</script>
 
 <%+footer%>
-
-
