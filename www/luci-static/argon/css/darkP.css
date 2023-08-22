@@ -1,5 +1,5 @@
 body {
-  #background-image: url('/luci-static/resources/openclash/img/bg.png');
+  background-image: url('/luci-static/resources/openclash/img/backgroundfanspage.png');
   background-size: cover;
   background-repeat: no-repeat;
   color: cyan;
@@ -35,15 +35,11 @@ body {
   opacity: 0.9;
 }
 header::after {
-  background-color: transparent !important;
-}
-.main {
-    background-color: url('backgroundfanspage.png');
+  background-color: #1e1e1e !important;
 }
 .main .main-left {
-  background-color: #0000009a !important;
+  background-color: #333333 !important;
   box-shadow: 0 0 0.5rem 0 rgba(0, 0, 0, 0.15);
-  border-radius: 10px;
 }
 .main .main-left .sidenav-header .brand {
   color: #2bffc6;
@@ -68,7 +64,7 @@ header::after {
 }
 .main .main-left .nav .slide .menu.active {
   background-color: #483d8b !important;
-  background-color: darkcyan !important;
+  background-color: var(--dark-primary) !important;
   color: #2bffc6 !important;
 }
 .main .main-left .nav .slide .menu.active a::after {
@@ -89,11 +85,11 @@ header::after {
   background-color: #333;
 }
 .main .main-right {
-  background-color: transparent; <!-- warna bg diluar system dll -->
+  background-color: #1e1e1e;
 }
 h2 {
-  color: cyan;
-  background: #0000009a;
+  color: #ccc;
+  background: #333333;
 }
 h3 {
   color: #ccc;
@@ -144,7 +140,7 @@ header.bg-primary {
 }
 div > table > tbody > tr:nth-of-type(2n),
 div > .table > .tr:nth-of-type(2n) {
-  background-color: transparent;
+  background-color: #252526;
 }
 table > tbody > tr > td,
 table > tfoot > tr > td,
@@ -207,10 +203,9 @@ tr > th,
 .cbi-section-table-row::before,
 #cbi-wireless > #wifi_assoclist_table > .tr:nth-child(2) {
   border-top: 0;
-  color: white;
 }
 .cbi-rowstyle-2 {
-  background-color: transparent;
+  background-color: #1e1e1e;
 }
 .cbi-rowstyle-1 {
   background-color: #252526;
@@ -223,17 +218,16 @@ body:not(.Interfaces) .cbi-rowstyle-2:first-child {
 .cbi-section > h3:first-child,
 .panel-title,
 h3 {
-  color: cyan;
-  background: #0000009a;
+  color: #32dbde;
 }
 h4 {
   background-color: #1e1e1f;
 }
 .cbi-progressbar {
-  background: #0000009a;
+  background: #282a2c;
 }
 .cbi-progressbar div {
-  background-color: darkcyan !important;
+  background-color: var(--dark-primary) !important;
 }
 .cbi-section-table .cbi-section-table-titles .cbi-section-table-cell {
   background-color: #1e1e1f;
@@ -268,7 +262,7 @@ div > .table > .tbody > .tr:nth-of-type(2n) {
   background-color: #1e1e1e !important;
 }
 .tabs {
-  background-color: #0000009a;
+  background-color: #252526;
 }
 .tabs li[class~="active"],
 .tabs li:hover {
@@ -381,8 +375,7 @@ textarea:focus-visible {
   color: #666;
 }
 .ifacebox-body {
-  background-color: transparent;
-  color: white;
+  background-color: #333;
 }
 .zonebadge strong {
   color: #333;
@@ -491,10 +484,11 @@ header .fill .status span[data-style="active"] {
 [data-page="admin-network-diagnostics"] .tr > .td,
 .tr.table-titles > .th,
 .tr.cbi-section-table-titles > .th {
-  background-color: transparent;
+  background-color: #252526;
+  border-bottom: black 1px solid !important;
 }
 .network-status-table .ifacebox-body .ifacebadge {
-  background-color: #0000009a;
+  background-color: #252526;
   border-bottom: 0;
   box-shadow: none;
 }
@@ -528,7 +522,7 @@ td > .ifacebadge,
 [data-page^="admin-system-admin"]:not(.node-main-login)
   .cbi-map:not(#cbi-dropbear),
 [data-page="admin-system-opkg"] #maincontent > .container {
-  background: transparent !important;
+  background: #1e1e1e !important;
   box-shadow: 0 0 0.5rem 0 rgba(0, 0, 0, 0.35);
 }
 div[style="width:100%;height:300px;border:1px solid #000;background:#fff"] {
@@ -570,7 +564,7 @@ input,
   color: #ccc;
 }
 .cbi-section-table-row {
-  background: transparent !important;
+  background-color: #1e1e1e !important;
 }
 .modal {
   background-color: #1e1e1e;
@@ -657,7 +651,7 @@ input,
 [data-page="admin-status-routes"] #view p textarea,
 [data-page="admin-system-crontab"] #view p textarea {
   color: #ccc;
-  background-color: #252526;
+  background-color: transparent;
 }
 #view > .spinning {
   background: #333333 !important;
@@ -665,10 +659,10 @@ input,
 }
 @media screen and (min-width: 600px) {
   ::-webkit-scrollbar-thumb {
-    background-color: #0000009a;
+    background: var(--dark-primary);
   }
   ::-webkit-scrollbar-thumb:hover {
-    background: darkcyan;
+    background: var(--dark-primary);
   }
   ::-webkit-scrollbar-thumb:active {
     background: var(--dark-primary);

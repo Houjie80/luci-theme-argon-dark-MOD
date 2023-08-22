@@ -13,10 +13,9 @@ html {
 }
 body {
   margin: 0;
-  background-image: url('/luci-static/resources/openclash/img/bg.png');
+  background-image: url('/luci-static/resources/openclash/img/backgroundfanspage.png');
   background-size: cover;
   background-repeat: no-repeat;
-  color: cyan;
 }
 main {
   display: block;
@@ -951,7 +950,7 @@ a.pure-button-selected {
   background-color: #f2f2f2;
 }
 .pure-table-striped tr:nth-child(2n-1) td {
-  #background-color: #f2f2f2;
+  background-color: #f2f2f2;
 }
 .pure-table-bordered td {
   border-bottom: 1px solid #cbcbcb;

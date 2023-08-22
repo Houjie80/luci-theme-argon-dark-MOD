@@ -1,14 +1,11 @@
 body {
-  #background-image: url('/luci-static/resources/openclash/img/bg.png');
-  background-size: cover;
-  background-repeat: no-repeat;
+  background:  #1e1e1e;
   color: cyan;
 }
 .login-page .login-container .login-form {
-  background-color: #1e1e1e;
+  background-color: transparent;
   -webkit-backdrop-filter: blur(var(--blur-radius-dark));
   backdrop-filter: blur(var(--blur-radius-dark));
-  background-color: rgba(0, 0, 0, var(--blur-opacity-dark));
 }
 .login-page .login-container .login-form .brand {
   color: #adb5bd;
@@ -49,7 +46,7 @@ header::after {
   color: #2bffc6;
 }
 .main .main-left .nav .slide .slide-menu .active a {
-  color: #f5365c;
+  color: #cccccc;
 }
 .main .main-left .nav .slide .slide-menu .active a::after {
   background-color: #cccccc !important;
@@ -129,7 +126,7 @@ input:-webkit-autofill {
   color: #ccc;
 }
 header.bg-primary {
-  background-color: #893d4309 !important;
+  background-color: #1e1e1e !important;
 }
 .cbi-map-descr {
   color: #ccc;
@@ -157,7 +154,7 @@ fieldset > table > tbody > tr:nth-of-type(2n) {
 table > tbody > tr > td,
 table > tfoot > tr > td,
 table > thead > tr > td {
-  border-top: 2px solid #252526;
+  border-top: 1px solid #252526;
 }
 #swaptotal > div > div,
 #swapfree > div > div,
@@ -165,7 +162,7 @@ table > thead > tr > td {
 #membuff > div > div,
 #conns > div > div,
 #memtotal > div > div {
-  background-color: #A6B8B8;
+  background-color: var(--dark-primary) !important;
 }
 #swaptotal > div > div > div > small,
 #swapfree > div > div > div > small,
@@ -198,7 +195,7 @@ table > tbody > tr > th,
 table > tfoot > tr > th,
 table > thead > tr > th {
   background-color: #252526;
-  border-bottom: black 2px solid !important;
+  border-bottom: black 1px solid !important;
 }
 tr > td,
 tr > th,
@@ -441,13 +438,13 @@ td.cbi-value-field var {
 .cbi-button-find,
 .cbi-input-reload,
 .cbi-button-reload {
-  color: cyan !important;
+  color: #fff !important;
   background: darkolivegreen !important;
   border-color: darkolivegreen !important;
 }
 .cbi-button-reset,
 .cbi-input-remove {
-  color: #cyan !important;
+  color: cyan !important;
   background-color: darkorange !important;
   border-color: darkorange !important;
 }
@@ -467,7 +464,7 @@ td.cbi-value-field var {
 .cbi-button[onclick^="iface_reconnect"],
 .cbi-button[onclick="handleReset(event)"],
 .cbi-button-neutral[value="Disable"] {
-  color: #fff;
+  color: cyan;
   border: thin solid darkorange !important;
   background-color: darkorange !important;
 }
@@ -500,7 +497,7 @@ header .fill .status span[data-style="active"] {
 }
 td > .ifacebadge,
 .td > .ifacebadge {
-  color: #fff;
+  color: cyan;
   background-color: #483d8b;
   background-color: var(--dark-primary);
   border: 0;
@@ -570,7 +567,7 @@ input,
   color: #ccc;
 }
 .cbi-section-table-row {
-  background: transparent !important;
+  background-color: transparent; !important;
 }
 .modal {
   background-color: #1e1e1e;
@@ -665,7 +662,7 @@ input,
 }
 @media screen and (min-width: 600px) {
   ::-webkit-scrollbar-thumb {
-    background-color: #0000009a;
+    background: #0000009a;
   }
   ::-webkit-scrollbar-thumb:hover {
     background: darkcyan;
