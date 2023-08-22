@@ -15,3 +15,7 @@ SYARAT: harus sudah terinstall tema argon dan argon config terlebih dahulu
 ## Screenshots
 ![desktop](/Screenshots/screenshot_pc.jpg)
 ![mobile](/Screenshots/screenshot_phone.jpg)
+### credit
+- pembuat tema argon
+- eko uno
+  
